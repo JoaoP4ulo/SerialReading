@@ -7,34 +7,12 @@
     <title>Document</title>
 
     <link href="{% static 'dashboard/css/dashboard.css' %}" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="htmx.min.js" defer></script>
+    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
 </head>
-<script>
-    function atualizarVariavel() {
-        // Realize uma requisição AJAX para obter o valor atualizado da variável do servidor
-        // Supondo que a URL da sua view Django que retorna o valor atualizado seja "/atualizar_variavel/"
-        fetch('/atualizar_variavel/')
-            .then(response => response.json())
-            .then(data => {
-                // Atualize o valor da variável na página HTML
-                document.getElementById('meuTexto').innerText = data.frase_view;
-            })
-            .catch(error => {
-                console.error('Erro ao obter a variável do servidor:', error);
-            });
-    }
-
-    // Chame a função para atualizar a variável a cada 5 segundos (por exemplo)
-    setInterval(atualizarVariavel, 10); // 5000 milissegundos = 5 segundos
-</script>
-
-
 <body>
-    <div>
-        <div hx-get="/atualizar_variavel/" hx-trigger="every 1s">
-            <h2 id="meuTexto">{{ frase_view }}</h2>
-        </div>
+    <div id="btc" hx-get="{% url 'atualizar_variavel' %}" hx-trigger="every 1s" hx-swap="innerHTML">
+        <h2 id="meuTexto">{{ frase_view }}</h2>
     </div>
 </body>
 </html>
