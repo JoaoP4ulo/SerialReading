@@ -1,18 +1,29 @@
+{% extends 'bases/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
-    <link href="{% static 'dashboard/css/dashboard.css' %}" rel="stylesheet">
-    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
-    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
-</head>
-<body>
-    <div id="btc" hx-get="{% url 'atualizar_variavel' %}" hx-trigger="every 1s" hx-swap="innerHTML">
-        <h2 id="meuTexto">{{ frase_view }}</h2>
+{% block valores_att %}
+<script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+<script src="https://unpkg.com/htmx.org@1.6.1"></script>
+<link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}">
+
+<section>
+    <div id="btc" hx-get="{% url 'atualizar_variavel' %}" hx-trigger="every 0.1s" hx-swap="innerHTML" class="valor1">
+
+        <section class="section-container">
+            <div class="medicaoTemp">
+                <img src="{% static 'geral/img/thermometer.png' %}" alt="" class="img1">
+                <h2 id="valorTemp">{{ frase_view }}</h2>
+            </div>
+            <div class="medicaoPress">
+                <img src="{% static 'geral/img/pressure-gauge.png' %}" alt="" class="img2">
+                <h2 id="valorPress">{{ frase_view }}</h2>
+            </div>
+            <div class="medicaoOxi">
+                <img src="{% static 'geral/img/oxygen-tank.png' %}" alt="" class="img3">
+                <h2 id="valorOxi">{{ frase_view }}</h2>
+            </div>
+        </section>
+        
     </div>
-</body>
-</html>
+</section>
+{% endblock %}

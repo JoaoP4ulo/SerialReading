@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.section-container{
+    position: relative;
+    top: 150px;
+}
+
+.medicaoTemp{
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+}
+.img1{
+    width: 80px;
+    height: 85px;
+}
+
+.medicaoPress{
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+}
+.img2{
+    width: 80px;
+    height: 85px;
+}
+
+.medicaoOxi{
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+}
+.img3{
+    width: 80px;
+    height: 85px;
+}

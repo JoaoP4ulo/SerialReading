@@ -1,13 +1,21 @@
-body{
-    background-color: #1C1A1A !important;
-    color: white !important;
+*{
+    padding: 0;
+    margin: 0;
 }
 
-:root{
-     
-    --main-color: #2B2B2B;
-    --dark-color: #1C1A1A;
-    --contrast-color: #69D2CD;
-    --differential-color: #E96363;
+.cabecalho{
+    width: 100%;
+    height: 120px;
+    background-color: #02152E;
+    position: absolute;
+}
 
+.logo1{
+    align-content: center;
+    width: 487px;
+    height: 97px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
