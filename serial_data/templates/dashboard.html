@@ -1,29 +1,185 @@
-{% extends 'bases/base.html' %}
 {% load static %}
 
-{% block valores_att %}
-<script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
-<script src="https://unpkg.com/htmx.org@1.6.1"></script>
-<link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SerialReading</title>
 
-<section>
-    <div id="btc" hx-get="{% url 'atualizar_variavel' %}" hx-trigger="every 0.1s" hx-swap="innerHTML" class="valor1">
+    <!-- <link href="{% static 'geral/css/base.css' %}" rel="stylesheet">  -->
+    
+</head>
+<body>
+    <section>
+        <div class="cabecalho">
+            <img src="{% static 'geral/img/logobranca.png' %}" alt="LogoIntechno" class="logo1">
+        </div>
+    </section>
+    <style>
+        *{
+    padding: 0;
+    margin: 0;
+}
 
-        <section class="section-container">
-            <div class="medicaoTemp">
-                <img src="{% static 'geral/img/thermometer.png' %}" alt="" class="img1">
-                <h2 id="valorTemp">{{ frase_view }}</h2>
-            </div>
-            <div class="medicaoPress">
-                <img src="{% static 'geral/img/pressure-gauge.png' %}" alt="" class="img2">
-                <h2 id="valorPress">{{ frase_view }}</h2>
-            </div>
-            <div class="medicaoOxi">
-                <img src="{% static 'geral/img/oxygen-tank.png' %}" alt="" class="img3">
-                <h2 id="valorOxi">{{ frase_view }}</h2>
+.cabecalho{
+    width: 100%;
+    height: 100px;
+    background-color: #02152E;
+    position: absolute;
+}
+
+.logo1{
+    align-content: center;
+    width: 457px;
+    height: 77px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.section-container{
+    position: relative;
+    top: 400px;
+}
+
+.display{
+    position: relative;
+    justify-content: space-between;
+    width: 597px;
+    height: 478px;
+    border-radius: 20px;
+    background-color: #D9D9D9;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+
+.telaTemp{
+    position: relative;
+    width: 473px;
+    height: 85px;
+    background-color: white;
+    border-radius: 20px;
+    z-index: 1;
+}
+.medicaoTemp{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  
+}
+.img1{
+    width: 80px;
+    height: 85px;
+}
+#valorTemp{
+    position: relative;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.telaPress{
+    position: relative;
+    width: 473px;
+    height: 85px;
+    background-color: white;
+    border-radius: 20px;
+    z-index: 1;
+}
+.medicaoPress{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+.img2{
+    width: 80px;
+    height: 85px;
+}
+#valorPress{
+    position: relative;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.telaOxi{
+    position: relative;
+    width: 473px;
+    height: 85px;
+    background-color: white;
+    border-radius: 20px;
+    z-index: 1;
+}
+.medicaoOxi{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+.img3{
+    width: 80px;
+    height: 85px;
+}
+#valorOxi{
+    position: relative;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+    </style>
+
+    <!-- Não mdar a class dessa section -->
+    <section class="work_space">
+        <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+        <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+        <!-- <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}"> -->
+        
+        <section>
+            <div id="btc" hx-get="{% url 'atualizar_variavel' %}" hx-trigger="every 0.1s" hx-swap="innerHTML" class="valor1">
+        
+                <section class="section-container">
+                    <div class="display">
+
+                        <div class="medicaoTemp">
+                            <img src="{% static 'geral/img/thermometer.png' %}" alt="" class="img1">
+                            <div class="telaTemp">
+                                <h2 id="valorTemp">{{ frase_view }}</h2>
+                            </div> 
+                        </div>
+                        <div class="medicaoPress">
+                            <img src="{% static 'geral/img/pressure-gauge.png' %}" alt="" class="img2">
+                            <div class="telaPress">
+                                <h2 id="valorPress">{{ frase_view }}</h2>
+                            </div>
+                        </div>
+                        <div class="medicaoOxi">
+                            <img src="{% static 'geral/img/oxygen-tank.png' %}" alt="" class="img3">
+                            <div class="telaOxi">
+                                <h2 id="valorOxi">{{ frase_view }}</h2>
+                            </div>    
+                        </div>
+                        
+                    </div>
+                    
+                </section>
+                
             </div>
         </section>
-        
-    </div>
-</section>
-{% endblock %}
+
+    </section>
+</body>
+</html>
